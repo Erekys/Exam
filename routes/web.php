@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get(['middleware'=>'auth','namespace'=>'Portal'],function(){
+
+  Route::get('blogs','BlogController@index.php');
+  Route::get('blogs/information/{id}','BlogController@information');
+});
